@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ScopeBar">
+        <attr name="scopeColor" format="color" />
+        <attr name="scopeRadius" format="dimension" />
+    </declare-styleable>
+</resources>
