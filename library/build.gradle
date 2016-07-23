@@ -1,4 +1,9 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+version = "1.0.0"
+group = "com.lanko.scopebar"
 
 android {
     compileSdkVersion 24
@@ -8,7 +13,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 24
         versionCode 1
-        versionName "1.0"
+        versionName version
     }
     buildTypes {
         release {
@@ -22,4 +27,21 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.1.1'
+}
+
+Properties properties = new Properties();
+properties.load(project.rootProject.file("local.properties").newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    configurations = ['archives']
+
+    pkg {
+        repo = 'maven'
+        name = 'ScopeBar'
+        licenses = ['Apache-2.0']
+        websiteUrl = properties.getProperty("websiteUrl")
+        vcsUrl = properties.getProperty("vcsUrl")
+    }
 }

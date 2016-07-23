@@ -159,15 +159,15 @@ public class ScopeBar extends LinearLayout {
         return (int) (dpValue * scale + 0.5f);
     }
 
-    public ShapeDrawable getFirstScopeBackground() {
+    private ShapeDrawable getFirstScopeBackground() {
         return Background.getLeftRoundRect(scopeRadius, scopeColor);
     }
 
-    public ShapeDrawable getLastScopeBackground() {
+    private ShapeDrawable getLastScopeBackground() {
         return Background.getRightRoundRect(scopeRadius, scopeColor);
     }
 
-    public ShapeDrawable getMiddleScopeBackground() {
+    private ShapeDrawable getMiddleScopeBackground() {
         return Background.getRectangle(scopeColor);
     }
 }
