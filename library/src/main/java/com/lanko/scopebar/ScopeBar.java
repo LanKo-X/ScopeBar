@@ -88,19 +88,17 @@ public class ScopeBar extends LinearLayout {
 
     public ScopeBar addScope(String scopeName) {
         TextView newScope = new TextView(getContext());
+
         setParamsForTextView(newScope);
         newScope.setText(scopeName);
         newScope.setTextColor(scopeColor);
+
         newScope.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                int position = scopes.indexOf(view);
-
-                if (onTabChangeListener != null && currentPosition != position) {
-                    onTabChangeListener.onTabSelected(position);
-                }
-
-                setCurrent(position);
+                setCurrent(scopes.indexOf(view));
+                if (onTabChangeListener != null)
+                    onTabChangeListener.onTabSelected(currentPosition);
             }
         });
 
